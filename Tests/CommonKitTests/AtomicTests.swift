@@ -1,7 +1,14 @@
+//
+//  AtomicTests.swift
+//
+//
+//  Created by Anton Pomozov on 17.07.2021.
+//
+
 import XCTest
 @testable import CommonKit
 
-final class CommonKitTests: XCTestCase {
+final class AtomicTests: XCTestCase {
     func testAtomic() {
         let storage = SharedStorage()
 
@@ -15,7 +22,7 @@ final class CommonKitTests: XCTestCase {
     }
 }
 
-private extension CommonKitTests {
+private extension AtomicTests {
     func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0 ..< length).map { _ in letters.randomElement()! })
