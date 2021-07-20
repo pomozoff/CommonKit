@@ -16,6 +16,12 @@ public struct Stack<T> {
 
     public init() {}
 
+    mutating public func reversed() -> Stack<T> {
+        var stack = Stack<T>()
+        while let element = pop() { stack.push(element) }
+        return stack
+    }
+
     public func last(where closure: (T) -> Bool) -> T? {
         for value in stack.reversed() {
             if closure(value) { return value }

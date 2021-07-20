@@ -67,6 +67,18 @@ final class StackTests: XCTestCase {
         XCTAssert(stack.isEmpty, "Is not empty")
     }
 
+    func testStackReversed() {
+        stack.push(10)
+        stack.push(20)
+        stack.push(30)
+
+        var reversed = stack.reversed()
+        XCTAssert(reversed.pop() == 10, "Invalid value popped")
+        XCTAssert(reversed.pop() == 20, "Invalid value popped")
+        XCTAssert(reversed.pop() == 30, "Invalid value popped")
+        XCTAssert(stack.isEmpty, "Is not empty")
+    }
+
     private var stack: Stack<Int>!
 }
 
