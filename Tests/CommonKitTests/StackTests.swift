@@ -61,8 +61,9 @@ final class StackTests: XCTestCase {
         stack.push(10)
         stack.push(20)
         stack.push(30)
-        stack.removeAll()
+        XCTAssert(stack.last(where: { $0 == 20 }) == 20, "Found a wrong last element")
 
+        stack.removeAll()
         XCTAssert(stack.isEmpty, "Is not empty")
     }
 

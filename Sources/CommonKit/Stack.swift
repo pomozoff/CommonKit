@@ -16,6 +16,13 @@ public struct Stack<T> {
 
     public init() {}
 
+    public func last(where closure: (T) -> Bool) -> T? {
+        for value in stack.reversed() {
+            if closure(value) { return value }
+        }
+        return nil
+    }
+
     public mutating func push(_ value: T) { stack.append(value) }
 
     public mutating func pop() -> T? { stack.isEmpty ? nil : stack.removeLast() }
