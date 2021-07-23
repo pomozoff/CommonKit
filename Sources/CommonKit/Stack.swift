@@ -23,6 +23,15 @@ public struct Stack<T: Equatable> {
         return nil
     }
 
+    public func lastEnumerated(where closure: (T) -> Bool) -> (Int, T)? {
+        var index = stack.count - 1
+        for value in stack.reversed() {
+            defer { index -= 1 }
+            if closure(value) { return (index, value) }
+        }
+        return nil
+    }
+
     public func contains(_ element: T) -> Bool {
         stack.contains(element)
     }
