@@ -79,6 +79,19 @@ final class StackTests: XCTestCase {
         XCTAssert(stack.isEmpty, "Is not empty")
     }
 
+    func testStackContains() {
+        stack.push(10)
+        stack.push(20)
+        stack.push(30)
+        XCTAssert(stack.contains(20), "Stack doesn't contain 20")
+        XCTAssert(stack.contains { $0 == 20 }, "Stack doesn't contain 20")
+
+        _ = stack.pop()
+        _ = stack.pop()
+        XCTAssert(!stack.contains(20), "Stack contains 20")
+        XCTAssert(!stack.contains { $0 == 20 }, "Stack contains 20")
+    }
+
     private var stack: Stack<Int>!
 }
 
