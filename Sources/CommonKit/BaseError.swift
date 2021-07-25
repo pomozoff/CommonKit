@@ -18,7 +18,7 @@ open class BaseError<ErrorCode: BaseErrorCode>: NSError {
     public var errorCodeName: String { String(describing: errorCode) }
     public var underlyingError: NSError? { userInfo[NSUnderlyingErrorKey] as? NSError }
     public var shortErrorIdentifier: String { makeShortErrorIdentifier(from: self) }
-    public var erroCodePrefix: String { NSLocalizedString("BaseError.CodePrefix", comment: "The text before a error code at the bottom of an error pop-up") }
+    public var erroCodePrefix: String { NSLocalizedString("Error code: ", comment: "The text before a error code at the bottom of an error pop-up") }
 
     open var domainShortName: String { "BE" }
     open override var localizedFailureReason: String? { nil }
