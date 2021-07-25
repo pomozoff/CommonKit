@@ -21,6 +21,7 @@ open class BaseError<ErrorCode: BaseErrorCode>: NSError {
     public var erroCodePrefix: String { NSLocalizedString("BaseError.CodePrefix", comment: "The text before a error code at the bottom of an error pop-up") }
 
     open var domainShortName: String { "BE" }
+    open override var localizedFailureReason: String? { nil }
 
     public required init(
         code: ErrorCode,
